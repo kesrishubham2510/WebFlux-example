@@ -25,8 +25,20 @@ public class OperatorMapTest {
 
           StepVerifier.create(upperCaseCarNames).expectNext("SUPRA")
           .expectNextCount(2)
-          .verifyComplete();
-        
+          .verifyComplete();   
     }
-    
+   
+    @Test
+    void testImmutateTheFlux(){
+        
+        //  the test will fail, because we can't immutate the flux by assigning it to the some other variable 
+          Flux<String> upperCaseCarNames = operatorMap.immutateTheFlux();
+
+          // after asserting the first element to be SUPRA, checking the length of the remaining list   
+
+          StepVerifier.create(upperCaseCarNames).expectNext("SUPRA")
+          .expectNextCount(2)
+          .verifyComplete();   
+    }
+   
 }

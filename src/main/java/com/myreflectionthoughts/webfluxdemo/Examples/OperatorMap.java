@@ -26,13 +26,32 @@ public class OperatorMap {
         return fluxOfCars().map(String::toUpperCase);
     }
 
+
+    // to test immutability of reactive streams
+    public Flux<String> immutateTheFlux(){
+       // assigning the flux
+       Flux<String> carNames = fluxOfCars();
+     
+       /**
+        *  If we try to apply the transformation to the flux
+           by assigning it to the different variable, it does not
+           work
+           
+        * We can modify or transform the flux only using the operators.   
+        */
+       
+       // applying transformation to the flux
+       carNames.map(String::toUpperCase);
+       return carNames;    
+    }
+
     public static void main(String[] args) {
 
         OperatorMap reactiveEvents = new OperatorMap();
 
         Consumer<String> printCarName = (carName)->System.out.println(carName);
         // transforming the data returned by fluxOfCars
-        reactiveEvents.transformedCarFlux().subscribe(printCarName);
+        reactiveEvents.immutateTheFlux().subscribe(printCarName);
 
     }
 
