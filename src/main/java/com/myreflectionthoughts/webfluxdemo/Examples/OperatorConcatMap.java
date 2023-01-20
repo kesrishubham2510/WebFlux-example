@@ -8,15 +8,14 @@ import java.util.function.Consumer;
 import reactor.core.publisher.Flux;
 
 /**
- * The concatMap() operator preserves the sequence of the reactive streams.
- * 
- * Suppose, we are to apply a service which transforms the input passed
- * but takes random amount time for every input, in such scenario the
- * result returned might not be in the expected order. This is a possible
- * scenario
- * when using a flatMap
- * 
- * Requirement(flatMap() + preserve the order) = concatMap()
+     * The concatMap() operator preserves the sequence of the reactive streams.
+ 
+     * Suppose, we are to apply a service which transforms the input passed
+       but takes random amount time for every input, in such scenario the
+       result returned might not be in the expected order. This is a possible
+       scenario when using a flatMap
+ 
+     * Requirement(flatMap() + preserve the order) = concatMap()
  */
 public class OperatorConcatMap {
 
